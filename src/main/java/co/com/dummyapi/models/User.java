@@ -22,6 +22,7 @@ public class User {
         this.firstName = builder.getFirstName();
         this.lastName = builder.getLastName();
         this.email = builder.getEmail();
+        this.location = builder.build().getLocation();
     }
 
     public String getId() {
@@ -40,12 +41,32 @@ public class User {
         return lastName;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
     public String getEmail() {
         return email;
     }
 
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public String getRegisterDate() {
+        return registerDate;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
     public String getPicture() {
         return picture;
+    }
+
+    public Location getLocation() {
+        return location;
     }
 
 }
