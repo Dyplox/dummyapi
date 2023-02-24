@@ -2,7 +2,8 @@ package co.com.dummyapi.utils.endpoints;
 
 public enum Usuario {
 
-    USUARIO("https://dummyapi.io/data/v1/"), USER("user/");
+    URL_BASE_("https://dummyapi.io/data/v1/"),
+    USER_("user/");
 
     private final String endpoint;
 
@@ -12,6 +13,6 @@ public enum Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{ endpoint='" + endpoint + '}';
+        return "Usuario endpoint='" + endpoint + '}';
     }
 }
