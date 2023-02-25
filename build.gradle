@@ -36,6 +36,7 @@ dependencies {
 
     implementation('net.serenity-bdd:serenity-screenplay-rest:2.0.81')
     implementation('net.serenity-bdd:serenity-core:2.0.81')
+    implementation 'com.google.code.gson:gson:2.8.9'
 
     implementation("org.junit.platform:junit-platform-launcher:1.5.2")
     implementation("org.junit.jupiter:junit-jupiter-engine:5.5.2")

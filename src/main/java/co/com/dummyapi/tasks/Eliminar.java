@@ -19,7 +19,7 @@ public class Eliminar implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Delete.from(URL_BASE + URI_USER + ID_USER)
+                Delete.from(URL_BASE_TEST + URI_USER + ID_USER)
                         .with(requestSpecification -> requestSpecification
                                 .header("Content-Type", "application/json")
                                 .header("app-id", "63f791c396469f998f3335e2")

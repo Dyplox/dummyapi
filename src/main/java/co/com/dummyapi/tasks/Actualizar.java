@@ -28,7 +28,7 @@ public class Actualizar implements Task {
                 "}";
 
         actor.attemptsTo(
-                Patch.to(URL_BASE + URI_USER + ID_USER)
+                Patch.to(URL_BASE_TEST + URI_USER + ID_USER)
                         .with(requestSpecification -> requestSpecification
                                 .header("Content-Type", "application/json")
                                 .header("app-id", "63f791c396469f998f3335e2")

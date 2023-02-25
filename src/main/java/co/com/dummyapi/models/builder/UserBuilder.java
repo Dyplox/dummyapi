@@ -1,7 +1,8 @@
 package co.com.dummyapi.models.builder;
 
+import co.com.dummyapi.models.Location;
 import co.com.dummyapi.models.User;
-import javafx.util.Builder;
+import co.com.dummyapi.utils.Builder;
 
 public class UserBuilder implements Builder<User> {
 
@@ -9,14 +10,18 @@ public class UserBuilder implements Builder<User> {
     private String firstName;
     private String lastName;
     private String email;
+    private Location location;
 
-    public UserBuilder byDefault() {
-        this.id = "6969";
+    public UserBuilder() {
+        this.id = "";
         this.firstName = "Abel Fernando";
         this.lastName = "Gutierrez Arias";
-        this.email = "abel.gutierrezarias+10@outlook.com";
+        this.email = "abel.102@outlook.com";
+        this.location = LocationBuilder.byDefault();
+    }
 
-        return new UserBuilder();
+    public static User byDefault() {
+        return new UserBuilder().build();
     }
 
     public String getId() {
@@ -51,8 +56,16 @@ public class UserBuilder implements Builder<User> {
         this.email = email;
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
     @Override
-    public User build(){
+    public User build() {
         return new User(this);
     }
 }

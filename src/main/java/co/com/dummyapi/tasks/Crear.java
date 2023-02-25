@@ -1,38 +1,33 @@
 package co.com.dummyapi.tasks;
 
+import co.com.dummyapi.models.User;
+import com.google.gson.Gson;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Post;
 
-import static co.com.dummyapi.utils.Constantes.*;
+import static co.com.dummyapi.utils.Constantes.CREATE_USER;
+import static co.com.dummyapi.utils.Constantes.URI_USER;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class Crear implements Task {
 
-    private String firstName;
-    private String lastName;
-    private String email;
+    private User user;
 
-    public Crear(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
+    public Crear(User user) {
+        this.user = user;
     }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        String body = "{\n" +
-                "    \"firstName\": \"'Abel'\",\n" +
-                "    \"lastName\": \"Gutierrez\",\n" +
-                "    \"email\": \"test@outlook.com\"\n" +
-                "}";
-
+        String json = new Gson().toJson(user);
         actor.attemptsTo(
-                Post.to(URL_BASE + URI_USER + CREATE_USER)
+                Post.to(URI_USER + CREATE_USER)
                         .with(requestSpecification -> requestSpecification
+                                .header("Content-Type", "application/json")
                                 .header("app-id", "63f791c396469f998f3335e2")
-                                .body(body)
+                                .body(json)
                                 .relaxedHTTPSValidation()
                         )
         );
@@ -40,7 +35,7 @@ public class Crear implements Task {
         SerenityRest.lastResponse().getBody().prettyPrint();
     }
 
-    public static Crear usuario() {
-        return instrumented(Crear.class);
+    public static Crear usuario(User user) {
+        return instrumented(Crear.class, user);
     }
 }

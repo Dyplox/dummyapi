@@ -22,7 +22,7 @@ public class User {
         this.firstName = builder.getFirstName();
         this.lastName = builder.getLastName();
         this.email = builder.getEmail();
-        this.location = builder.build().getLocation();
+        this.location = builder.getLocation();
     }
 
     public String getId() {

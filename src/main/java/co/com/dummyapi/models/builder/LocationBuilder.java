@@ -1,7 +1,7 @@
 package co.com.dummyapi.models.builder;
 
 import co.com.dummyapi.models.Location;
-import javafx.util.Builder;
+import co.com.dummyapi.utils.Builder;
 
 public class LocationBuilder implements Builder<Location> {
     private String street;
@@ -10,14 +10,16 @@ public class LocationBuilder implements Builder<Location> {
     private String country;
     private String timezone;
 
-    public LocationBuilder byDefault() {
+    public LocationBuilder(){
         this.street = "47A";
         this.city = "Manizales";
         this.state = "Caldas";
         this.country = "Colombia";
         this.timezone = "UTC-5";
+    }
 
-        return new LocationBuilder();
+    public static Location byDefault(){
+        return new LocationBuilder().build();
     }
 
     public String getStreet() {

@@ -2,8 +2,7 @@ package co.com.dummyapi.utils.endpoints;
 
 public enum Usuario {
 
-    URL_BASE_("https://dummyapi.io/data/v1/"),
-    USER_("user/");
+    URL_BASE_("https://dummyapi.io/data/v1/");
 
     private final String endpoint;
 
