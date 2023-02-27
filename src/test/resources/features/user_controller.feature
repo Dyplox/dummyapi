@@ -20,16 +20,16 @@ Característica: Realizar una regresion para el proceso de User Controller
     Dado que Abel quiere acceder al servicio
     Cuando realiza la peticion get el usuario
     Entonces verifica que el codigo HTTP sea 200
-    Y el esquema de respuesta
+    Y el esquema de respuesta para el Get User by Id
 
   Escenario: Actualizar un usuario por ID en el servicio
     Dado que Abel quiere acceder al servicio
     Cuando realiza la peticion Put para actualizar el usuario
     Entonces verifica que el codigo HTTP sea 200
-    Y el esquema de respuesta
+    Y el esquema de respuesta el Put User
 
   Escenario: Eliminar un usuario en el servicio
     Dado que Abel quiere acceder al servicio
     Cuando realiza la peticion Delete para eliminar el usuario
     Entonces verifica que el codigo HTTP sea 200
-    Y el esquema de respuesta
+    Y el esquema de respuesta para el Delete User

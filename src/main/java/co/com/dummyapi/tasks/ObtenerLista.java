@@ -12,6 +12,7 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 public class ObtenerLista implements Task {
 
     public ObtenerLista() {
+        //empty
     }
 
     @Override

@@ -7,7 +7,6 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Patch;
 import net.thucydides.core.annotations.Step;
 
-import static co.com.dummyapi.utils.Constantes.ID_USER;
 import static co.com.dummyapi.utils.Constantes.URI_USER;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
@@ -30,7 +29,7 @@ public class Actualizar implements Task {
                 "}";
 
         actor.attemptsTo(
-                Patch.to(URI_USER + ID_USER)
+                Patch.to(URI_USER + user.getId())
                         .with(requestSpecification -> requestSpecification
                                 .header("Content-Type", "application/json")
                                 .header("app-id", "63f791c396469f998f3335e2")

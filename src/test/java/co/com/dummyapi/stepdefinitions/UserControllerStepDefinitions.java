@@ -84,8 +84,28 @@ public class UserControllerStepDefinitions {
     @Test
     @Entonces("el esquema de respuesta para el metodo POST")
     public void elEsquemaDeRespuestaParaElMetodoPost() {
-        //String responseBody = response.getBody().asString();
         String responseBody = SerenityRest.lastResponse().getBody().asString();
         assertThat(responseBody, matchesJsonSchemaInClasspath("postUser.json"));
+    }
+
+    @Test
+    @Entonces("el esquema de respuesta para el Get User by Id")
+    public void elEsquemaDeRespuestaParaElGetUserById() {
+        String responseBody = SerenityRest.lastResponse().getBody().asString();
+        assertThat(responseBody, matchesJsonSchemaInClasspath("GetById.json"));
+    }
+
+    @Test
+    @Entonces("el esquema de respuesta el Put User")
+    public void elEsquemaDeRespuestaParaElPutUser() {
+        String responseBody = SerenityRest.lastResponse().getBody().asString();
+        assertThat(responseBody, matchesJsonSchemaInClasspath("PutUser.json"));
+    }
+
+    @Test
+    @Entonces("el esquema de respuesta para el Delete User")
+    public void elEsquemaDeRespuestaParaElDeleteUser() {
+        String responseBody = SerenityRest.lastResponse().getBody().asString();
+        assertThat(responseBody, matchesJsonSchemaInClasspath("DeleteUser.json"));
     }
 }

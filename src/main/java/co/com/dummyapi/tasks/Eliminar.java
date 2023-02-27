@@ -7,7 +7,6 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Delete;
 import net.thucydides.core.annotations.Step;
 
-import static co.com.dummyapi.utils.Constantes.ID_USER;
 import static co.com.dummyapi.utils.Constantes.URI_USER;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
@@ -23,7 +22,7 @@ public class Eliminar implements Task {
     @Step("delete user with id {0}")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Delete.from(URI_USER + ID_USER)
+                Delete.from(URI_USER + user.getId())
                         .with(requestSpecification -> requestSpecification
                                 .header("Content-Type", "application/json")
                                 .header("app-id", "63f791c396469f998f3335e2")

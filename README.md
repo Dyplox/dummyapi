@@ -1,4 +1,4 @@
-# DummyApi
+#### DummyApi
 
 
 Proyecto de automatizacion de DummyApi, en la cual se prueba un esquema del escenario para agregar un usuario en la API.
@@ -27,6 +27,13 @@ git clone https://github.com/Dyplox/dummyapi.git
 git remote add origin https://github.com/Dyplox/dummyapi.git
 ```
 
+### Ejecucion
+
+Linea de comando para la ejecucion
+
+```
+Gradle :clean :build :test -i
+```
 
 ## Autor
 
