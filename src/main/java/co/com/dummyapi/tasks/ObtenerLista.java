@@ -4,6 +4,7 @@ import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Get;
+import net.thucydides.core.annotations.Step;
 
 import static co.com.dummyapi.utils.Constantes.URI_USER;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
@@ -14,6 +15,7 @@ public class ObtenerLista implements Task {
     }
 
     @Override
+    @Step("fetches the users list")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Get.resource(URI_USER)

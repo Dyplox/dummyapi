@@ -16,7 +16,7 @@ public class UserBuilder implements Builder<User> {
         this.id = "";
         this.firstName = "Abel Fernando";
         this.lastName = "Gutierrez Arias";
-        this.email = "abel.102@outlook.com";
+        this.email = "abel.105@outlook.com";
         this.location = LocationBuilder.byDefault();
     }
 

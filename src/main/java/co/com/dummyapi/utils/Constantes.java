@@ -2,7 +2,6 @@ package co.com.dummyapi.utils;
 
 public class Constantes {
 
-    public static final String URL_BASE_TEST = "https://dummyapi.io/data/v1/";
     public static final String URI_USER = "user/";
     public static final String CREATE_USER = "create";
     public static final String ID_USER = "TOKEN_VACIO";

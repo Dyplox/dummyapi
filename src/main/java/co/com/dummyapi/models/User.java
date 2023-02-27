@@ -3,7 +3,6 @@ package co.com.dummyapi.models;
 import co.com.dummyapi.models.builder.UserBuilder;
 
 public class User {
-
     private String id;
     private String title;
     private String firstName;
@@ -16,9 +15,10 @@ public class User {
     private String picture;
     private Location location;
 
+    public User() {
+    }
 
     public User(UserBuilder builder) {
-        this.id = builder.getId();
         this.firstName = builder.getFirstName();
         this.lastName = builder.getLastName();
         this.email = builder.getEmail();
@@ -27,6 +27,10 @@ public class User {
 
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -69,4 +73,15 @@ public class User {
         return location;
     }
 
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", location=" + location +
+                '}';
+    }
 }

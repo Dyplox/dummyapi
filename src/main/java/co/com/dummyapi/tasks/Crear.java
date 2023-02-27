@@ -6,13 +6,12 @@ import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Post;
+import net.thucydides.core.annotations.Step;
 
-import static co.com.dummyapi.utils.Constantes.CREATE_USER;
-import static co.com.dummyapi.utils.Constantes.URI_USER;
+import static co.com.dummyapi.utils.Constantes.*;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class Crear implements Task {
-
     private User user;
 
     public Crear(User user) {
@@ -20,6 +19,7 @@ public class Crear implements Task {
     }
 
     @Override
+    @Step("{0} create the user with data by default")
     public <T extends Actor> void performAs(T actor) {
         String json = new Gson().toJson(user);
         actor.attemptsTo(
@@ -31,8 +31,9 @@ public class Crear implements Task {
                                 .relaxedHTTPSValidation()
                         )
         );
-        SerenityRest.lastResponse().statusCode();
         SerenityRest.lastResponse().getBody().prettyPrint();
+        actor.attemptsTo(GuardarId.usuario(user));
+        actor.remember(ID_USER, user.getId());
     }
 
     public static Crear usuario(User user) {

@@ -1,25 +1,29 @@
 package co.com.dummyapi.tasks;
 
+import co.com.dummyapi.models.User;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Delete;
+import net.thucydides.core.annotations.Step;
 
-import static co.com.dummyapi.utils.Constantes.*;
+import static co.com.dummyapi.utils.Constantes.ID_USER;
+import static co.com.dummyapi.utils.Constantes.URI_USER;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class Eliminar implements Task {
 
-    private int id;
+    private User user;
 
-    public Eliminar(int id) {
-        this.id = id;
+    public Eliminar(User user) {
+        this.user = user;
     }
 
     @Override
+    @Step("delete user with id {0}")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Delete.from(URL_BASE_TEST + URI_USER + ID_USER)
+                Delete.from(URI_USER + ID_USER)
                         .with(requestSpecification -> requestSpecification
                                 .header("Content-Type", "application/json")
                                 .header("app-id", "63f791c396469f998f3335e2")
@@ -31,7 +35,7 @@ public class Eliminar implements Task {
 
     }
 
-    public static Eliminar usuario(int id) {
-        return instrumented(Eliminar.class, id);
+    public static Eliminar usuario(User user) {
+        return instrumented(Eliminar.class, user);
     }
 }
